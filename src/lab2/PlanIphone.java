@@ -1,25 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package lab2;
-
 /**
  *
- * @author Administrator
+ * @author josemartin
  */
 public class PlanIphone extends Plan{
     
     String email;
     double pago;
     
-    public PlanIphone(int numeroTelefono, String nombreCliente) {
+    public PlanIphone(int numeroTelefono, String nombreCliente, String email) {
         super(numeroTelefono, nombreCliente);
+        
+        this.email = email;
         pago = 22;
     }
     
     @Override
     public double PagoMensual(int mins, int msjs) {
+        
         pago += (0.4 * mins) + (0.1 * msjs);
         return pago;
     }
@@ -29,7 +27,8 @@ public class PlanIphone extends Plan{
         return super.Imprimir() + "\nEmail: " + email;
     }
     
-    public String getEmail() {
+    @Override
+    public String getExtra() {
         return email;
     }
 }
